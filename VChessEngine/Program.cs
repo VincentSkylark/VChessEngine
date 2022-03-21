@@ -12,7 +12,7 @@ namespace UCIEngine
             Stream inputStream = Console.OpenStandardInput(); // can set stream type, buffer size
             Console.SetIn(new StreamReader(inputStream, Encoding.ASCII, false));
             Engine.GameEngine engine = new Engine.GameEngine();
-            var gameThread = new Thread(engine.Run);
+            var gameThread = new Thread(engine.Run) { IsBackground = true};
             gameThread.Start();
         }
     }
